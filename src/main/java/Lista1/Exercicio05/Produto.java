@@ -35,9 +35,17 @@ public abstract class Produto {
     }
 
     public void setQuantidadeComprada(int quantidadeComprada) {
+        if(quantidadeComprada > this.quantidadeEstoque){
+            throw new IllegalArgumentException("Estoque Insuficiente");
+        }
         this.quantidadeComprada = quantidadeComprada;
-        this.setQuantidadeEstoque(this.getQuantidadeEstoque() - this.quantidadeComprada);
+        this.setQuantidadeEstoque(this.getQuantidadeEstoque() - quantidadeComprada);
     }
 
-    public abstract float calcularPreco();
+    public float getDesconto(){
+        return 0.0f;
+    }
+    public float calcularPreco(){
+        return this.getQuantidadeComprada() * this.getPrecoUnitario() - this.getDesconto();
+    }
 }

@@ -29,9 +29,13 @@ public abstract class ContaBancaria {
         this.saldo = saldo;
     }
 
-    public abstract void depositar(float valor);
+    public abstract void depositar(float valorDeposito);
 
-    public abstract void sacar();
+    public void sacar(float valorSaque){
+        if(valorSaque > this.saldo){
+            throw new IllegalArgumentException("Não tem saldo para isso");
+        }
+    }
 
     public abstract float calcularJuros();
 }
