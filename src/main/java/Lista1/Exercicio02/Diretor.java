@@ -4,7 +4,7 @@ public class Diretor extends Funcionario{
     private float lucroEmpresa;
 
     public float getLucroEmpresa() {
-        return lucroEmpresa;
+        return this.lucroEmpresa;
     }
 
     public void setLucroEmpresa(float lucroEmpresa) {

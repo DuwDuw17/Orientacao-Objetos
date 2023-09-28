@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FuncionarioComumTest {
 
-    Funcionario funcionario;
+    FuncionarioComum funcionario;
 
     @BeforeEach
     void setUp(){
