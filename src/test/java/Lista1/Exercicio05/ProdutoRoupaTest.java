@@ -7,25 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProdutoRoupaTest {
 
-    ProdutoRoupa roupa;
-
-    @BeforeEach
-    void setUp(){
-        roupa = new ProdutoRoupa();
-    }
-
     @Test
-    void deveRetornarRoupaComDesconto(){
-        roupa.setQuantidadeComprada(3);
-        roupa.setPrecoUnitario(25.0f);
-        assertEquals(63.75, roupa.calcularPreco());
-    }
-
-    @Test
-    void deveRetornarRoupaSemDesconto(){
-        roupa.setQuantidadeComprada(2);
-        roupa.setPrecoUnitario(25);
-        assertEquals(50.0f, roupa.calcularPreco());
+    void deveCalcularPreco() {
+        ProdutoRoupa produto = new ProdutoRoupa();
+        produto.setPrecoUnitario(10.0f);
+        produto.setQuantidadeEstoque(2.0f);
+        produto.setQuantidadeComprada(2.0f);
+        produto.setDesconto(5.0f);
+        assertEquals(15.0f, produto.calcularPreco());
     }
 
 }

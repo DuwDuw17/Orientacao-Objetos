@@ -1,10 +1,15 @@
 package Lista1.Exercicio05;
 
 public abstract class Produto {
+
     private String nome;
     private float precoUnitario;
-    private int quantidadeEstoque;
-    private int quantidadeComprada;
+    private float quantidadeEstoque;
+    private float quantidadeComprada;
+
+    public Produto() {
+        this.quantidadeEstoque = 0.0f;
+    }
 
     public String getNome() {
         return nome;
@@ -22,30 +27,31 @@ public abstract class Produto {
         this.precoUnitario = precoUnitario;
     }
 
-    public int getQuantidadeEstoque() {
+    public float getQuantidadeEstoque() {
         return quantidadeEstoque;
     }
 
-    public void setQuantidadeEstoque(int quantidadeEstoque) {
+    public void setQuantidadeEstoque(float quantidadeEstoque) {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    public int getQuantidadeComprada() {
-        return this.quantidadeComprada;
+    public float getQuantidadeComprada() {
+        return quantidadeComprada;
     }
 
-    public void setQuantidadeComprada(int quantidadeComprada) {
-        if(quantidadeComprada > this.quantidadeEstoque){
-            throw new IllegalArgumentException("Estoque Insuficiente");
+    public void setQuantidadeComprada(float quantidadeComprada) {
+        if (quantidadeComprada > this.quantidadeEstoque) {
+            throw new IllegalArgumentException("Estoque insuficiente");
         }
         this.quantidadeComprada = quantidadeComprada;
-        this.setQuantidadeEstoque(this.getQuantidadeEstoque() - quantidadeComprada);
+        this.quantidadeEstoque = this.quantidadeEstoque - quantidadeComprada;
     }
 
-    public float getDesconto(){
+    public float getDesconto() {
         return 0.0f;
     }
-    public float calcularPreco(){
-        return this.getQuantidadeComprada() * this.getPrecoUnitario() - this.getDesconto();
+
+    public float calcularPreco() {
+        return this.precoUnitario * this.quantidadeComprada - this.getDesconto();
     }
 }

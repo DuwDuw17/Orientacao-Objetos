@@ -6,36 +6,35 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProdutoAlimentoTest {
-    ProdutoAlimento alimento;
 
     @Test
-    void naoDeveComprarAlimEstoque(){
-        try{
+    void naoDeveComprarAlemEstoque() {
+        try {
             ProdutoAlimento produto = new ProdutoAlimento();
-            produto.setQuantidadeEstoque(10);
-            produto.setQuantidadeComprada(11);
+            produto.setQuantidadeEstoque(100.0f);
+            produto.setQuantidadeComprada(100.1f);
             fail();
         }
-        catch (IllegalArgumentException e){
-            assertEquals("Estoque Insuficiente", e.getMessage());
+        catch (IllegalArgumentException e) {
+            assertEquals("Estoque insuficiente", e.getMessage());
         }
     }
 
     @Test
-    void deveComprarQuantidadeAbaixoEstoque(){
+    void deveComprarQuantidadeAbaixoEstoque() {
         ProdutoAlimento produto = new ProdutoAlimento();
-        produto.setQuantidadeEstoque(100);
-        produto.setQuantidadeComprada(100);
-        assertEquals(0, produto.getQuantidadeEstoque());
+        produto.setQuantidadeEstoque(100.0f);
+        produto.setQuantidadeComprada(100.0f);
+        assertEquals(0.0f, produto.getQuantidadeEstoque());
     }
 
     @Test
-    void deveCalcularPreco(){
+    void deveCalcularPreco() {
         ProdutoAlimento produto = new ProdutoAlimento();
-        produto.setQuantidadeEstoque(100);
-        produto.setQuantidadeComprada(100);
         produto.setPrecoUnitario(10.0f);
-        assertEquals(1000.0f, produto.calcularPreco());
+        produto.setQuantidadeEstoque(2.0f);
+        produto.setQuantidadeComprada(2.0f);
+        assertEquals(20.0f, produto.calcularPreco());
     }
 
 }

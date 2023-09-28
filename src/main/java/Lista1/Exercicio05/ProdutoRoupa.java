@@ -1,6 +1,7 @@
 package Lista1.Exercicio05;
 
-public class ProdutoRoupa extends Produto{
+public class ProdutoRoupa extends Produto {
+
     private float desconto;
 
     public float getDesconto() {
@@ -8,8 +9,8 @@ public class ProdutoRoupa extends Produto{
     }
 
     public void setDesconto(float desconto) {
-        if(desconto < 0){
-            throw new IllegalArgumentException("Desconto Inválido");
+        if (desconto < 0) {
+            throw new IllegalArgumentException("Desconto invalido");
         }
         this.desconto = desconto;
     }
