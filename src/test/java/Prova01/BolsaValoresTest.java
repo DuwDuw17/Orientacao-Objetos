@@ -49,14 +49,22 @@ class BolsaValoresTest {
     }
 
     @Test
-    void deveResgatar(){
+    void deveRetornarSaldoAposResgateBolsaValores(){
+        conta.setSaldo(100.0f);
+        conta.setValorRetirada(100.0f);
+        conta.resgatar();
+        assertEquals(0.0f, conta.getSaldo());
+    }
+
+    @Test
+    void deveResgatarBolsaValores(){
         conta.setSaldo(100.0f);
         conta.setValorRetirada(99.9f);
         assertEquals(99.9f, conta.resgatar());
     }
 
     @Test
-    void deveInvestir(){
+    void deveInvestirBolsaValores(){
         conta.setValorAdicional(100.0f);
         conta.investir();
         assertEquals(50.0f, conta.getSaldo());

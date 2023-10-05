@@ -50,14 +50,22 @@ class InvestimentoTest {
     }
 
     @Test
-    void deveResgatar(){
+    void deveResgatarInvestimento(){
         conta.setSaldo(100.0f);
         conta.setValorRetirada(100.0f);
         assertEquals(99.0f, conta.resgatar());
     }
 
     @Test
-    void deveInvestir(){
+    void deveRetornarSaldoAposResgateInvestimento(){
+        conta.setSaldo(100.0f);
+        conta.setValorRetirada(100.0f);
+        conta.resgatar();
+        assertEquals(0.0f, conta.getSaldo());
+    }
+
+    @Test
+    void deveInvestirInvestimento(){
         conta.setValorAdicional(100.0f);
         conta.investir();
         assertEquals(100.0f, conta.getSaldo());
