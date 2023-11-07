@@ -3,6 +3,18 @@ package Associacao;
 public class Aluno extends Pessoa{
 
     private Curso curso;
+    private Turma turma;
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        if(turma == null){
+            throw new IllegalArgumentException("Turma invalida");
+        }
+        this.turma = turma;
+    }
 
     public Aluno(Curso curso){
         this.setCurso(curso);
