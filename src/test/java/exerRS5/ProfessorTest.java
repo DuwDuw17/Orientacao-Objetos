@@ -58,4 +58,16 @@ class ProfessorTest {
         coordenador.setNome("Gabriel Pec");
         assertEquals("Gabriel Pec", professor.getCoordenadorProfessor());
     }
+
+    @Test
+    void deveRetornarNullSetandoContratacao(){
+        try{
+            Professor professor = new Professor();
+            professor.setContratacao(null);
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Contratacao Inválidada", e.getMessage());
+        }
+    }
 }
