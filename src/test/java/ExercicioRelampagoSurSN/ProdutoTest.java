@@ -101,4 +101,8 @@ class ProdutoTest {
         historico = produto.exibirHistorico();
         assertEquals(1, historico.size());
     }
+
+    // PARA USAR FLOAT EM TESTE E COLOCAR AS CASAS DECIMAIS
+    //assertEquals(..., ..., 0,01) (delta)
+
 }
