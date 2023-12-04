@@ -16,4 +16,28 @@ class FilialTest {
         filial.setEmpresa(empresa);
         assertEquals("Vasco", filial.nomeDiretorEmpresaFilial());
     }
+
+    @Test
+    void deveRetornarEmpresaInvalida(){
+        try{
+            Filial filial = new Filial();
+            filial.nomeDiretorEmpresaFilial();
+            fail();
+        } catch (IllegalArgumentException e){
+            assertEquals("Empresa Inválida", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarDiretorInvalida(){
+        try{
+            Filial filial = new Filial();
+            Empresa empresa = new Empresa();
+            filial.setEmpresa(empresa);
+            filial.nomeDiretorEmpresaFilial();
+            fail();
+        } catch (IllegalArgumentException e){
+            assertEquals("Diretor Inválido", e.getMessage());
+        }
+    }
 }

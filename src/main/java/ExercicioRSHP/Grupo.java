@@ -21,6 +21,9 @@ public class Grupo {
     }
 
     public String escolaridadePresidenteGrupo(){
+        if(getPresidente().getEscolaridade() == null){
+            throw new IllegalArgumentException("Escolaridade Invalida");
+        }
         return presidente.getEscolaridade().getNome();
     }
 }

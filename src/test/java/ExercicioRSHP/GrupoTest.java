@@ -14,7 +14,19 @@ class GrupoTest {
         grupo.setPresidente(presidente);
         presidente.setEscolaridade(escolaridade);
         assertEquals("Ensino Medio", grupo.escolaridadePresidenteGrupo());
-
     }
 
+    @Test
+    void deveRetornarEscolaridadeNull(){
+        try{
+            Funcionario presidente = new Funcionario();
+            Grupo grupo = new Grupo();
+            grupo.setPresidente(presidente);
+            grupo.escolaridadePresidenteGrupo();
+            fail();
+        }
+        catch (IllegalArgumentException e){
+            assertEquals("Escolaridade Inválida", e.getMessage());
+        }
+    }
 }

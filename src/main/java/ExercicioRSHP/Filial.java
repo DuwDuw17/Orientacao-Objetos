@@ -21,6 +21,12 @@ public class Filial {
     }
 
     public String nomeDiretorEmpresaFilial(){
+        if(this.getEmpresa() == null){
+            throw new IllegalArgumentException("Empresa Inválida");
+        }
+        if(this.getEmpresa().getDiretor() == null){
+            throw new IllegalArgumentException("Diretor Inválido");
+        }
         return this.getEmpresa().getDiretor().getNome();
     }
 

@@ -39,11 +39,26 @@ public class Funcionario {
         this.coordenacao = coordenacao;
     }
 
-    public String paisFuncionario(){
+    public String getPaisFuncionario(){
+        if (getAlocacao().getEmpresa() == null){
+            throw new IllegalArgumentException("Empresa Inválida");
+        }
+        if (getAlocacao().getEmpresa().getGrupo() == null){
+            throw new IllegalArgumentException("Grupo Inválido");
+        }
+        if (getAlocacao().getEmpresa().getGrupo().getSede() == null){
+            throw new IllegalArgumentException("Sede Inválida");
+        }
         return this.getAlocacao().getEmpresa().getGrupo().getSede().getNome();
     }
 
-    public String estadoFilialFuncionario(){
+    public String getEstadoFilialFuncionario(){
+        if(getCoordenacao().getCidade() == null){
+            throw new IllegalArgumentException("Cidade Inválida");
+        }
+        if(getCoordenacao().getCidade().getEstado() == null){
+            throw new IllegalArgumentException("Estado Inválido");
+        }
         return this.getCoordenacao().getCidade().getEstado().getNome();
     }
 }

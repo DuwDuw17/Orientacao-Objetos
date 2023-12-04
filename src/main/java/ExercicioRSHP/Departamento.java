@@ -1,5 +1,7 @@
 package ExercicioRSHP;
 
+import com.sun.nio.sctp.IllegalReceiveException;
+
 public class Departamento {
     private Funcionario chefe;
     private Empresa empresa;
@@ -21,6 +23,12 @@ public class Departamento {
     }
 
     public String escolaridadeChefeDepartamento(){
+        if(this.getChefe() == null){
+            throw new IllegalArgumentException("Chefe Inválido");
+        }
+        if(this.getChefe().getEscolaridade() == null){
+            throw new IllegalArgumentException("Escolaridade Inválida");
+        }
         return this.getChefe().getEscolaridade().getNome();
     }
 }
